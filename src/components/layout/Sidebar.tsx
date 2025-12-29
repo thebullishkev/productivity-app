@@ -5,6 +5,9 @@ import {
   Clock,
   FileText,
   Settings,
+  Wallet,
+  Share2,
+  Bell,
   type LucideIcon,
 } from 'lucide-react'
 import { useAppStore } from '../../store'
@@ -14,6 +17,7 @@ interface NavItem {
   id: AppView
   label: string
   icon: LucideIcon
+  badge?: string
 }
 
 const navItems: NavItem[] = [
@@ -21,6 +25,9 @@ const navItems: NavItem[] = [
   { id: 'habits', label: 'Habits', icon: Repeat },
   { id: 'timer', label: 'Timer', icon: Clock },
   { id: 'notes', label: 'Notes', icon: FileText },
+  { id: 'web3', label: 'Web3', icon: Wallet, badge: 'NEW' },
+  { id: 'social', label: 'Social', icon: Share2, badge: 'NEW' },
+  { id: 'notifications', label: 'Notifications', icon: Bell },
   { id: 'settings', label: 'Settings', icon: Settings },
 ]
 
@@ -62,7 +69,12 @@ export function Sidebar() {
                   )}
                 >
                   <Icon className="w-5 h-5" />
-                  <span>{item.label}</span>
+                  <span className="flex-1">{item.label}</span>
+                  {item.badge && (
+                    <span className="px-1.5 py-0.5 text-[10px] font-bold bg-accent-success text-white rounded">
+                      {item.badge}
+                    </span>
+                  )}
                 </button>
               </li>
             )

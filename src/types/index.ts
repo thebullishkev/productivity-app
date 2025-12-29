@@ -93,4 +93,4 @@ export interface MascotState {
 }
 
 // App View State
-export type AppView = 'tasks' | 'habits' | 'timer' | 'notes' | 'settings'
+export type AppView = 'tasks' | 'habits' | 'timer' | 'notes' | 'web3' | 'social' | 'notifications' | 'settings'

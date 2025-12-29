@@ -1,6 +1,15 @@
 import { useAppStore } from './store'
 import { Sidebar, Header } from './components/layout'
-import { TaskList, HabitTracker, Timer, Notes, Mascot } from './components/features'
+import {
+  TaskList,
+  HabitTracker,
+  Timer,
+  Notes,
+  Mascot,
+  Web3Tasks,
+  SocialTasks,
+  NotificationCenter,
+} from './components/features'
 import { Card } from './components/ui'
 
 function SettingsView() {
@@ -60,6 +69,30 @@ function MainContent() {
       return <Timer />
     case 'notes':
       return <Notes />
+    case 'web3':
+      return (
+        <div className="h-full overflow-auto p-6">
+          <div className="max-w-4xl">
+            <Web3Tasks />
+          </div>
+        </div>
+      )
+    case 'social':
+      return (
+        <div className="h-full overflow-auto p-6">
+          <div className="max-w-4xl">
+            <SocialTasks />
+          </div>
+        </div>
+      )
+    case 'notifications':
+      return (
+        <div className="h-full overflow-auto p-6">
+          <div className="max-w-2xl">
+            <NotificationCenter />
+          </div>
+        </div>
+      )
     case 'settings':
       return <SettingsView />
     default:
